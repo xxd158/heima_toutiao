@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="登录">
+    <van-nav-bar title="登录" @click-left='$router.back()'>
       <van-icon name="cross" slot="left" />
     </van-nav-bar>
     <van-form @submit="onSubmit" ref="form">
@@ -13,8 +13,9 @@
           { pattern: /^(?:(?:\+|00)86)?1\d{10}$/, message: '不符合手机格式' },
         ]"
       >
-        <i class="toutiao toutiao-shouji" slot="left-icon"></i
-      ></van-field>
+        <!-- <i class="toutiao toutiao-shouji" slot="left-icon"></i> -->
+        <MyIcon name="shouji" slot="left-icon"></MyIcon>
+      </van-field>
       <van-field
         v-model.trim="code"
         type="password"
@@ -24,7 +25,9 @@
           { required: true, message: '请填写验证码' },
           { pattern: /^\d{6}$/, message: '验证码必须是6位数' },
         ]"
-        ><i class="toutiao toutiao-yanzhengma" slot="left-icon"></i>
+      >
+        <!-- <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i> -->
+        <MyIcon name="yanzhengma" slot="left-icon"></MyIcon>
         <template #button>
           <van-count-down
             v-if="countDownIsShow"
@@ -68,11 +71,12 @@ export default {
       // console.log('submit', values)
       try {
         const res = await login(values)
-        console.log(res)
+        // console.log(res)
         console.log('成功')
         this.$store.commit('setUser', res.data.data)
+        this.$router.push({ name: 'my' })
       } catch (error) {
-        console.log(error)
+        // console.log(error)
         console.log('失败')
       }
     },
