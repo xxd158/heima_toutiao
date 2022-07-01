@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+<div>
+    搜索
+</div>
 </template>
 
 <script>
 export default {
-
-  created () { },
+  created () {},
   data () {
     return {}
   },
@@ -20,4 +19,5 @@ export default {
 </script>
 
 <style scoped lang='less'>
+
 </style>

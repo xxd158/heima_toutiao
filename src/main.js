@@ -10,7 +10,10 @@ import MyIcon from '@/components/MyIcon.vue'
 // import '@/styles/icon.less'
 // import '@/styles/reset.less'
 import '@/styles/index.less'
-
+import * as obj from '@/filters'
+Object.keys(obj).forEach(key => {
+  Vue.filter(key, obj[key])
+})
 Vue.component('MyIcon', MyIcon)
 Vue.use(Vant)
 

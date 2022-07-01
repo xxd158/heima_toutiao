@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-view class="main" />
+    <keep-alive :include="['Home']">
+      <router-view class="main" />
+    </keep-alive>
 
     <van-tabbar route>
       <van-tabbar-item replace to="/home" icon="home-o">
@@ -19,21 +21,29 @@
       >
       <van-tabbar-item replace to="/my" icon="search">
         <template #icon> <i class="toutiao toutiao-wode"></i> </template
-        >我的</van-tabbar-item
+        >{{ status }}</van-tabbar-item
       >
     </van-tabbar>
   </div>
 </template>
 
 <script>
+
 export default {
+
   created () { },
   data () {
-    return {}
+    return {
+      status: '我的'
+    }
   },
   methods: {},
-  computed: {},
-  watch: {},
+  computed: {
+
+  },
+  watch: {
+
+  },
   filters: {},
   components: {}
 }

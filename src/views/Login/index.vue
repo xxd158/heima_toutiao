@@ -60,7 +60,7 @@ export default {
   created () { },
   data () {
     return {
-      mobile: '13911111111', // 手机号
+      mobile: '15822493700', // 手机号
       code: '246810', // 短信验证码
       time: 10 * 1000,
       countDownIsShow: false
